@@ -2,6 +2,8 @@
 <script src="mraid.js"></script>
 <script>if(typeof window.mraid==="undefined"){window.mraid={getState:function(){return"ready"},isViewable:function(){return!0},addEventListener:function(e,cb){if(e==="ready"&&typeof cb==="function")cb()},removeEventListener:function(){},open:function(t){window.open(t,"_blank")},openStoreURL:function(t){if(window.mraid&&mraid.open){mraid.open(t)}else{window.open(t,"_blank")}},getMraidAdData:function(){return{}},getResizeProperties:function(){return{}},getCurrentPosition:function(){return{x:0,y:0,width:window.innerWidth,height:window.innerHeight}},getMaxSize:function(){return{width:window.innerWidth,height:window.innerHeight}},getScreenSize:function(){return{width:window.innerWidth,height:window.innerHeight}}}}</script>
 <script>(function(){function initMraid(){var state=mraid.getState();if(state==="ready"){onReady()}else{mraid.addEventListener("ready",onReady)}}function onReady(){window._mraidReady=true}initMraid()})();</script>
+<script>(function(){function handleOrientationChange(){var msg={type:'orientationChange',width:window.innerWidth,height:window.innerHeight};window.dispatchEvent(new Event('orientationchange'))}window.addEventListener('orientationchange',handleOrientationChange);window.addEventListener('resize',function(){window.dispatchEvent(new Event('orientationChange'))})})();</script>
+
 <meta charset="utf-8"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="screen-orientation" content="portrait"><script>(function(){/*
 
  Copyright The Closure Library Authors.
